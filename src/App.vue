@@ -1,23 +1,21 @@
 <template>
-
   <AppHeader />
 
   <div class="flex w-full">
-    <router-view></router-view>
+    <SuperHeroes />
+    <router-view />
   </div>
-
 </template>
 
 <script>
-import AppHeader from './components/AppHeader.vue';
+import AppHeader from "./components/AppHeader.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
     AppHeader,
   },
-}
+};
 </script>
 
-<style>
-</style>
+<style></style>
