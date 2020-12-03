@@ -6,15 +6,40 @@
       v-for="page in pages"
       :key="page.title"
       :to="page.to"
-      class="m-2"
+      class="mx-2"
     >
       {{ page.title }}
     </router-link>
+    <div class="inline-block float-right">
+      <button
+        v-if="!isAuthenticated"
+        class="mx-2"
+        @click="$emit('open-login-modal')"
+      >
+        Login
+      </button>
+      <button
+        v-else
+        class="mx-2"
+        @click="logout()"
+      >
+        Logout
+      </button>
+    </div>
   </nav>
 </template>
 
 <script>
+import firebase from "../utilities/firebase";
+
 export default {
+  props: {
+    isAuthenticated: {
+      type: Boolean,
+      required: true,
+    },
+  },
+  emits: ["open-login-modal", "logout"],
   data() {
     return {
       pages: [
@@ -25,6 +50,19 @@ export default {
         { title: "Slider", to: "/slider" },
       ],
     };
+  },
+  methods: {
+    logout() {
+      firebase
+        .auth()
+        .signOut()
+        .then(function() {
+          // Sign-out successful.
+        })
+        .catch(function(error) {
+          // An error happened.
+        });
+    },
   },
 };
 </script>

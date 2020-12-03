@@ -87,7 +87,6 @@ export default {
         : false;
     },
   },
-
   methods: {
     prev() {
       if (this.currentMonth == 0) {

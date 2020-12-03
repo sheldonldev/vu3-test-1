@@ -20,6 +20,7 @@
       @submit.prevent="addNewHero"
     >
       <input
+        ref="addNewHeroRef"
         v-model.trim.lazy.number="newHero"
         class="px-2 mr-2 border rounded"
         placeholder="Enter new hero"
@@ -35,36 +36,40 @@
 </template>
 
 <script>
+import { computed, onMounted, ref } from "vue";
+
 export default {
-
-  data() {
-    return {
-      newHero: "",
-
-      superHeroes: [
-        { name: "Super Girl" },
-        { name: "Batman" },
-        { name: "Super Man" },
-      ],
+  setup() {
+    const addNewHeroRef = ref("");
+    onMounted(() => {
+      addNewHeroRef.value.focus();
+    });
+    const newHero = ref("");
+    const superHeroes = ref([
+      { name: "Super Girl" },
+      { name: "Batman" },
+      { name: "Super Man" },
+    ]);
+    const heroesCount = computed(() => {
+      get: () => superHeroes.value.length;
+    });
+    const remove = index => {
+      superHeroes.value = superHeroes.value.filter((hero, i) => i != index);
     };
-  },
-
-  computed: {
-    heroesCount() {
-      return this.superHeroes.length;
-    },
-  },
-  methods: {
-    addNewHero() {
-      if (this.newHero) {
-        this.superHeroes.unshift({ name: this.newHero });
-        this.newHero = "";
+    const addNewHero = () => {
+      if (newHero.value) {
+        superHeroes.value.unshift({ name: newHero.value });
+        newHero.value = "";
       }
-    },
-
-    remove(index) {
-      this.superHeroes = this.superHeroes.filter((hero, i) => i != index);
-    },
+    };
+    return {
+      superHeroes,
+      newHero,
+      heroesCount,
+      remove,
+      addNewHero,
+      addNewHeroRef,
+    };
   },
 };
 </script>
