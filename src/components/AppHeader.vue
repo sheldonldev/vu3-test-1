@@ -48,6 +48,8 @@ export default {
         { title: "Calendar", to: "/calendar" },
         { title: "Markdown", to: "/markdown" },
         { title: "Slider", to: "/slider" },
+        { title: "Calculator", to: "/calculator" },
+        { title: "Modal", to: "/reusable-modal" },
       ],
     };
   },
@@ -56,11 +58,12 @@ export default {
       firebase
         .auth()
         .signOut()
-        .then(function() {
+        .then(function () {
           // Sign-out successful.
         })
-        .catch(function(error) {
+        .catch(function (error) {
           // An error happened.
+          console.log(error);
         });
     },
   },

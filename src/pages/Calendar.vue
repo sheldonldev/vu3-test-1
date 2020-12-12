@@ -1,8 +1,6 @@
 <template>
   <div class="m-auto">
-    <h1 class="my-2 text-2xl text-center">
-      Vue Calendar
-    </h1>
+    <h1 class="my-2 text-2xl text-center">Vue Calendar</h1>
     <section class="flex justify-between mx-4">
       <h2 class="mx-2 font-bold">
         {{ monthName }}
@@ -16,26 +14,23 @@
         v-for="day in days"
         :key="day"
         class="my-2 text-center"
-        style="width:14.28%"
+        style="width: 14.28%"
       >
         {{ day }}
       </p>
     </section>
-    <section
-      class="flex flex-wrap"
-      style="height: 10em; width: 24em;"
-    >
+    <section class="flex flex-wrap" style="height: 10em; width: 24em">
       <p
         v-for="(blank, index) in startDay"
         :key="index"
         class="text-center"
-        style="width:14.28%"
+        style="width: 14.28%"
       />
       <p
         v-for="date in daysInMonth"
         :key="date"
         class="text-center"
-        style="width:14.28%"
+        style="width: 14.28%"
         :class="
           isThisMonth && date === today.getDate()
             ? 'text-red-500 bg-blue-50'
@@ -46,12 +41,8 @@
       </p>
     </section>
     <section class="flex justify-between my-4">
-      <button @click="prev()">
-        &lt; Prev
-      </button>
-      <button @click="next()">
-        Next &gt;
-      </button>
+      <button @click="prev()">&lt; Prev</button>
+      <button @click="next()">Next &gt;</button>
     </section>
   </div>
 </template>
@@ -77,7 +68,7 @@ export default {
     monthName() {
       return new Date(
         this.currentYear,
-        this.currentMonth,
+        this.currentMonth
       ).toLocaleString("default", { month: "long" });
     },
     isThisMonth() {

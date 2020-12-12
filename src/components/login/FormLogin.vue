@@ -1,8 +1,5 @@
 <template>
-  <form
-    class="py-2"
-    @submit.prevent="submit"
-  >
+  <form class="py-2" @submit.prevent="submit">
     <div class="my-4">
       <input
         ref="emailInputRef"
@@ -10,7 +7,7 @@
         class="w-full p-2 rounded shadow"
         placeholder="Email"
         type="text"
-      >
+      />
     </div>
     <div class="my-4">
       <input
@@ -18,11 +15,11 @@
         class="w-full p-2 rounded shadow"
         placeholder="Password"
         type="password"
-      >
+      />
     </div>
     <button
       type="submit"
-      class="w-full py-2 my-4 text-white bg-purple-700 border rounded shadow "
+      class="w-full py-2 my-4 text-white bg-purple-700 border rounded shadow"
     >
       <span v-if="!isLoading">Login</span>
       <span v-else>⌛ Loading...</span>
@@ -53,13 +50,13 @@ export default {
       firebase
         .auth()
         .signInWithEmailAndPassword(this.form.email, this.form.password)
-        .then(user => {
+        .then((user) => {
           this.isLoading = false;
           this.form.email = "";
           this.form.password = "";
           this.close();
         })
-        .catch(error => {
+        .catch((error) => {
           var errorCode = error.code;
           var errorMessage = error.message;
           this.isLoading = false;

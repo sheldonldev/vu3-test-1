@@ -1,8 +1,6 @@
 <template>
   <div class="m-auto">
-    <h1 class="text-3xl text-center">
-      Super Heroes {{ heroesCount }}
-    </h1>
+    <h1 class="text-3xl text-center">Super Heroes {{ heroesCount }}</h1>
     <ul class="mt-2">
       <li
         v-for="(hero, index) in superHeroes"
@@ -10,21 +8,16 @@
         class="flex justify-between"
       >
         <div>{{ hero.name }}</div>
-        <button @click="remove(index)">
-          x
-        </button>
+        <button @click="remove(index)">x</button>
       </li>
     </ul>
-    <form
-      class="mt-8"
-      @submit.prevent="addNewHero"
-    >
+    <form class="mt-8" @submit.prevent="addNewHero">
       <input
         ref="addNewHeroRef"
         v-model.trim.lazy.number="newHero"
         class="px-2 mr-2 border rounded"
         placeholder="Enter new hero"
-      >
+      />
       <button
         class="px-2 text-white border rounded bg-gradient-to-br from-red-700 to-pink-300"
         type="submit"
@@ -50,10 +43,10 @@ export default {
       { name: "Batman" },
       { name: "Super Man" },
     ]);
-    const heroesCount = computed(() => {
-      get: () => superHeroes.value.length;
+    const heroesCount = computed({
+      get: () => superHeroes.value.length,
     });
-    const remove = index => {
+    const remove = (index) => {
       superHeroes.value = superHeroes.value.filter((hero, i) => i != index);
     };
     const addNewHero = () => {

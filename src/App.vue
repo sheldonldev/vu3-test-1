@@ -9,10 +9,7 @@
   </div>
 
   <teleport to="body">
-    <LoginModal
-      v-if="isLoginOpen"
-      @close-login-modal="isLoginOpen = false"
-    />
+    <LoginModal v-if="isLoginOpen" @close-login-modal="isLoginOpen = false" />
   </teleport>
 </template>
 
@@ -35,7 +32,7 @@ export default {
     };
   },
   mounted() {
-    firebase.auth().onAuthStateChanged(user => {
+    firebase.auth().onAuthStateChanged((user) => {
       if (user) {
         // User is signed in.
         this.isAuthenticated = true;
