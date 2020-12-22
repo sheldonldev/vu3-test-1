@@ -1,15 +1,12 @@
 <template>
-  <AppHeader
-    :is-authenticated="isAuthenticated"
-    @open-login-modal="isLoginOpen = true"
-  />
+ <AppHeader />
 
   <div class="flex w-full">
     <router-view />
   </div>
 
   <teleport to="body">
-    <LoginModal v-if="isLoginOpen" @close-login-modal="isLoginOpen = false" />
+    <LoginModal v-if="isLoginOpen" onClose-login-modal="closeLoginModal()" />
   </teleport>
 </template>
 
@@ -24,23 +21,26 @@ export default {
     AppHeader,
     LoginModal,
   },
-  data() {
-    return {
-      isLoginOpen: false,
-      isAuthenticated: false,
-      authUser: {},
-    };
+  computed: {
+    isLoginOpen() {
+      return this.$store.state.isLoginOpen;
+    },
+  },
+  methods: {
+    closeLoginModal() {
+      this.$store.commit("setIsLoginOpen", false);
+    },
   },
   mounted() {
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
         // User is signed in.
-        this.isAuthenticated = true;
-        this.authUser = user;
+        this.$store.commit("setIsAuthenticated", true);
+        this.$store.commit("setAuthUser", user);
       } else {
         // No user is signed in.
-        this.isAuthenticated = false;
-        this.authUser = {};
+        this.$store.commit("setIsAuthenticated", false);
+        this.$store.commit("setAuthUser", {});
       }
     });
   },

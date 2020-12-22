@@ -14,7 +14,7 @@
       <button
         v-if="!isAuthenticated"
         class="mx-2"
-        @click="$emit('open-login-modal')"
+        @click="openLoginModal"
       >
         Login
       </button>
@@ -33,12 +33,6 @@
 import firebase from "../utilities/firebase";
 
 export default {
-  props: {
-    isAuthenticated: {
-      type: Boolean,
-      required: true,
-    },
-  },
   emits: ["open-login-modal", "logout"],
   data() {
     return {
@@ -50,8 +44,14 @@ export default {
         { title: "Slider", to: "/slider" },
         { title: "Calculator", to: "/calculator" },
         { title: "Modal", to: "/reusable-modal" },
+        { title: "Chat", to: "/chat" },
       ],
     };
+  },
+  computed: {
+    isAuthenticated() {
+      return this.$store.state.isAuthenticated;
+    },
   },
   methods: {
     logout() {
@@ -66,6 +66,9 @@ export default {
           console.log(error);
         });
     },
+    openLoginModal(){
+      this.$store.commit('setIsLoginOpen', true);
+    }
   },
 };
 </script>

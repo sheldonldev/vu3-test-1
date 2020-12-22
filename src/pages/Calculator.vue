@@ -244,6 +244,7 @@ export default {
       }
       pressed(value);
     };
+
     useWindowEvent("keydown", handleKeydown);
 
     return {
