@@ -55,13 +55,13 @@ export default {
           this.form.email = "";
           this.form.password = "";
           this.close();
+          console.log(user);
         })
         .catch((error) => {
-          var errorCode = error.code;
-          var errorMessage = error.message;
           this.isLoading = false;
           this.form.email = "";
           this.form.password = "";
+          console.log(error);
         });
     },
     close() {

@@ -11,20 +11,10 @@
       {{ page.title }}
     </router-link>
     <div class="inline-block float-right">
-      <button
-        v-if="!isAuthenticated"
-        class="mx-2"
-        @click="openLoginModal"
-      >
+      <button v-if="!isAuthenticated" class="mx-2" @click="openLoginModal">
         Login
       </button>
-      <button
-        v-else
-        class="mx-2"
-        @click="logout()"
-      >
-        Logout
-      </button>
+      <button v-else class="mx-2" @click="logout()">Logout</button>
     </div>
   </nav>
 </template>
@@ -45,6 +35,7 @@ export default {
         { title: "Calculator", to: "/calculator" },
         { title: "Modal", to: "/reusable-modal" },
         { title: "Chat", to: "/chat" },
+        { title: "UserCrud", to: "/user-crud" },
       ],
     };
   },
@@ -66,9 +57,9 @@ export default {
           console.log(error);
         });
     },
-    openLoginModal(){
-      this.$store.commit('setIsLoginOpen', true);
-    }
+    openLoginModal() {
+      this.$store.commit("setIsLoginOpen", true);
+    },
   },
 };
 </script>

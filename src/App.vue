@@ -6,7 +6,7 @@
   </div>
 
   <teleport to="body">
-    <LoginModal v-if="isLoginOpen" onClose-login-modal="closeLoginModal()" />
+    <LoginModal v-if="isLoginOpen" @close-login-modal="closeLoginModal()" />
   </teleport>
 </template>
 

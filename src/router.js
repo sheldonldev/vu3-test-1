@@ -1,3 +1,4 @@
+import UserCrud from "./pages/UserCrud.vue";
 import Chat from "./pages/Chat.vue";
 import SuperHeroes from "./pages/SuperHeroes.vue";
 import Calendar from "./pages/Calendar.vue";
@@ -18,6 +19,7 @@ const routes = [
   { path: "/calculator", component: Calculator, meta: { middleware: "auth" } },
   { path: "/reusable-modal", component: ReusableModal },
   { path: "/chat", component: Chat, meta: { middleware: "auth" } },
+  { path: "/user-crud", component: UserCrud },
 ];
 
 const router = createRouter({
