@@ -13,7 +13,7 @@ const store = createStore({
     },
     setIsLoginOpen(state, payload) {
       state.isLoginOpen = payload;
-    }
+    },
   },
 });
 

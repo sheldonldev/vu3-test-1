@@ -1,3 +1,4 @@
+import Tensorflow from "./pages/Tensorflow.vue";
 import UserCrud from "./pages/UserCrud.vue";
 import Chat from "./pages/Chat.vue";
 import SuperHeroes from "./pages/SuperHeroes.vue";
@@ -20,6 +21,7 @@ const routes = [
   { path: "/reusable-modal", component: ReusableModal },
   { path: "/chat", component: Chat, meta: { middleware: "auth" } },
   { path: "/user-crud", component: UserCrud },
+  { path: "/tensorflow", component: Tensorflow },
 ];
 
 const router = createRouter({

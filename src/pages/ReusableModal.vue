@@ -1,30 +1,14 @@
 <template>
   <section class="flex w-full">
     <div class="w-full m-auto">
-      <h1 class="text-2xl text-center">
-        Reusable Modal
-      </h1>
-      <Modal
-        v-if="isRedModalOpen"
-        @close-modal="isRedModalOpen = false"
-      >
-        <template #title>
-          Modal 1
-        </template>
-        <template #body>
-          body
-        </template>
+      <h1 class="text-2xl text-center">Reusable Modal</h1>
+      <Modal v-if="isRedModalOpen" @close-modal="isRedModalOpen = false">
+        <template #title> Modal 1 </template>
+        <template #body> body </template>
       </Modal>
-      <Modal
-        v-if="isBlueModalOpen"
-        @close-modal="isBlueModalOpen = false"
-      >
-        <template #title>
-          Modal 2
-        </template>
-        <template #body>
-          body
-        </template>
+      <Modal v-if="isBlueModalOpen" @close-modal="isBlueModalOpen = false">
+        <template #title> Modal 2 </template>
+        <template #body> body </template>
       </Modal>
       <button
         class="block px-4 py-2 m-auto mt-4 border rounded shadow"

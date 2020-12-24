@@ -1,9 +1,7 @@
 <template>
   <section class="flex w-full">
     <div class="m-auto">
-      <h1 class="text-2xl text-center">
-        Calculator
-      </h1>
+      <h1 class="text-2xl text-center">Calculator</h1>
       <p
         class="w-64 p-2 mt-10 mb-2 overflow-scroll text-right border rounded shadow"
       >
@@ -13,9 +11,9 @@
         <span class="block h-5 text-sm">
           <span v-if="selectedOperator !== '='">
             {{ prevNumber }}&nbsp;{{ selectedOperator }}
-            <span
-              v-if="!operators.includes(currNumber)"
-            >&nbsp;{{ currNumber }}</span>
+            <span v-if="!operators.includes(currNumber)"
+              >&nbsp;{{ currNumber }}</span
+            >
           </span>
         </span>
       </p>
@@ -145,7 +143,7 @@ export default {
     const prevNumber = ref("");
     const selectedOperator = ref("");
 
-    const pressed = value => {
+    const pressed = (value) => {
       if (valid_input.includes(value)) {
         if (value == "=") {
           result();
@@ -168,7 +166,7 @@ export default {
         currNumber.value = calculate(
           prevNumber.value,
           currNumber.value,
-          selectedOperator.value,
+          selectedOperator.value
         );
       }
 
@@ -176,14 +174,14 @@ export default {
       prevNumber.value = currNumber.value;
     };
 
-    const operate = value => {
+    const operate = (value) => {
       if (prevNumber.value === "") {
         prevNumber.value = currNumber.value;
       } else {
         currNumber.value = calculate(
           prevNumber.value,
           currNumber.value,
-          selectedOperator.value,
+          selectedOperator.value
         );
       }
 
@@ -200,11 +198,11 @@ export default {
     const dropDigit = () => {
       currNumber.value = currNumber.value.substr(
         0,
-        currNumber.value.length - 1,
+        currNumber.value.length - 1
       );
     };
 
-    const appendDigit = value => {
+    const appendDigit = (value) => {
       if (
         operators.includes(currNumber.value) ||
         typeof currNumber.value === "number"
@@ -229,7 +227,7 @@ export default {
       }
     };
 
-    const handleKeydown = e => {
+    const handleKeydown = (e) => {
       let value = "";
       switch (e.key) {
         case "Enter":

@@ -6,9 +6,7 @@
     >
       Login with Google <i class="fab fa-google" />
     </button>
-    <p class="mt-4 text-center text-gray-400">
-      --- Or ---
-    </p>
+    <p class="mt-4 text-center text-gray-400">--- Or ---</p>
   </section>
 </template>
 
@@ -23,11 +21,11 @@ export default {
       firebase
         .auth()
         .signInWithPopup(provider)
-        .then(user => {
+        .then((user) => {
           this.close();
           console.log(user);
         })
-        .catch(error => {
+        .catch((error) => {
           console.log(error);
         });
     },

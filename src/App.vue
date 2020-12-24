@@ -1,5 +1,5 @@
 <template>
- <AppHeader />
+  <AppHeader />
 
   <div class="flex w-full">
     <router-view />

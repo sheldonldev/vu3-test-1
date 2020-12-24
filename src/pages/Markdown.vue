@@ -1,8 +1,6 @@
 <template>
   <div class="w-full h-screen m-auto">
-    <h1 class="my-2 text-2xl text-center">
-      Markdown
-    </h1>
+    <h1 class="my-2 text-2xl text-center">Markdown</h1>
     <section class="flex w-10/12 m-auto h-5/6">
       <article class="w-1/2 border bg-gray-50">
         <textarea
