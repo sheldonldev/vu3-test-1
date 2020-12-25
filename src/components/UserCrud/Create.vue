@@ -6,18 +6,10 @@
     Add User
   </button>
   <teleport to="body">
-    <Modal
-      v-if="isModalOpen"
-      @close-modal="isModalOpen = false"
-    >
-      <template #title>
-        Add New User
-      </template>
+    <Modal v-if="isModalOpen" @close-modal="isModalOpen = false">
+      <template #title> Add New User </template>
       <template #body>
-        <form
-          class="px-4 py-2"
-          @submit.prevent="submit"
-        >
+        <form class="px-4 py-2" @submit.prevent="submit">
           <div>
             <label for="user-name">Name</label>
             <input
@@ -26,7 +18,7 @@
               class="w-full px-2 py-1 my-2 border rounded"
               type="text"
               placeholder="User Name"
-            >
+            />
           </div>
           <div>
             <label for="email">Email</label>
@@ -36,7 +28,7 @@
               class="w-full px-2 py-1 my-2 border rounded"
               type="email"
               placeholder="User Email"
-            >
+            />
           </div>
           <div>
             <label for="avatar-url">Avatar</label>
@@ -46,7 +38,7 @@
               class="w-full px-2 py-1 my-2 border rounded"
               type="text"
               placeholder="Avatar Url"
-            >
+            />
           </div>
           <div>
             <input
@@ -54,7 +46,7 @@
               class="w-full px-2 py-1 my-2 bg-blue-300 border rounded shadow hover:bg-blue-500 hover:text-white"
               type="submit"
               value="Create"
-            >
+            />
           </div>
         </form>
       </template>
@@ -68,7 +60,7 @@ import Modal from "../Modal";
 import axios from "../../plugins/axios";
 export default {
   components: { Modal },
-  emits:['newUserAdded'],
+  emits: ["newUserAdded"],
   setup(_, { emit }) {
     const isModalOpen = ref(false);
     const state = reactive({
