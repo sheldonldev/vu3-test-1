@@ -11,10 +11,20 @@
       {{ page.title }}
     </router-link>
     <div class="inline-block float-right">
-      <button v-if="!isAuthenticated" class="mx-2" @click="openLoginModal">
+      <button
+        v-if="!isAuthenticated"
+        class="mx-2"
+        @click="openLoginModal"
+      >
         Login
       </button>
-      <button v-else class="mx-2" @click="logout()">Logout</button>
+      <button
+        v-else
+        class="mx-2"
+        @click="logout()"
+      >
+        Logout
+      </button>
     </div>
   </nav>
 </template>

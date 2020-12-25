@@ -1,7 +1,9 @@
 <template>
   <section class="flex w-full">
     <div class="m-auto">
-      <h1 class="text-2xl text-center">Calculator</h1>
+      <h1 class="text-2xl text-center">
+        Calculator
+      </h1>
       <p
         class="w-64 p-2 mt-10 mb-2 overflow-scroll text-right border rounded shadow"
       >
@@ -11,9 +13,9 @@
         <span class="block h-5 text-sm">
           <span v-if="selectedOperator !== '='">
             {{ prevNumber }}&nbsp;{{ selectedOperator }}
-            <span v-if="!operators.includes(currNumber)"
-              >&nbsp;{{ currNumber }}</span
-            >
+            <span
+              v-if="!operators.includes(currNumber)"
+            >&nbsp;{{ currNumber }}</span>
           </span>
         </span>
       </p>

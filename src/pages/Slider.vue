@@ -15,7 +15,10 @@
         </div>
       </transition>
     </div>
-    <div class="absolute w-full" style="height: 75vh">
+    <div
+      class="absolute w-full"
+      style="height: 75vh"
+    >
       <div class="absolute bottom-0 flex justify-center w-full">
         <div
           v-for="(slide, index) in slides"

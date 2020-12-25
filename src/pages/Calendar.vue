@@ -1,6 +1,8 @@
 <template>
   <div class="m-auto">
-    <h1 class="my-2 text-2xl text-center">Vue Calendar</h1>
+    <h1 class="my-2 text-2xl text-center">
+      Vue Calendar
+    </h1>
     <section class="flex justify-between mx-4">
       <h2 class="mx-2 font-bold">
         {{ monthName }}
@@ -19,7 +21,10 @@
         {{ day }}
       </p>
     </section>
-    <section class="flex flex-wrap" style="height: 10em; width: 24em">
+    <section
+      class="flex flex-wrap"
+      style="height: 10em; width: 24em"
+    >
       <p
         v-for="(blank, index) in startDay"
         :key="index"
@@ -41,8 +46,12 @@
       </p>
     </section>
     <section class="flex justify-between my-4">
-      <button @click="prev()">&lt; Prev</button>
-      <button @click="next()">Next &gt;</button>
+      <button @click="prev()">
+        &lt; Prev
+      </button>
+      <button @click="next()">
+        Next &gt;
+      </button>
     </section>
   </div>
 </template>

@@ -1,5 +1,8 @@
 <template>
-  <form class="py-2" @submit.prevent="submit">
+  <form
+    class="py-2"
+    @submit.prevent="submit"
+  >
     <div class="my-4">
       <input
         ref="emailInputRef"
@@ -7,7 +10,7 @@
         class="w-full p-2 rounded shadow"
         placeholder="Email"
         type="text"
-      />
+      >
     </div>
     <div class="my-4">
       <input
@@ -15,7 +18,7 @@
         class="w-full p-2 rounded shadow"
         placeholder="Password"
         type="password"
-      />
+      >
     </div>
     <button
       type="submit"

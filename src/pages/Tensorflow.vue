@@ -1,7 +1,9 @@
 <template>
   <section class="flex w-full">
     <div class="m-auto">
-      <h1 class="mt-4 text-2xl text-center">Tensorflow Object Detection</h1>
+      <h1 class="mt-4 text-2xl text-center">
+        Tensorflow Object Detection
+      </h1>
       <div class="flex flex-wrap justify-center mt-4">
         <div class="w-full text-center">
           <button
@@ -26,7 +28,12 @@
             </button>
           </div>
         </div>
-        <video ref="videoRef" autoplay="true" width="200" class="m-auto" />
+        <video
+          ref="videoRef"
+          autoplay="true"
+          width="200"
+          class="m-auto"
+        />
       </div>
       <div class="flex justify-center">
         <img
@@ -36,7 +43,7 @@
           width="200"
           crossorigin="anonymous"
           class="m-auto"
-        />
+        >
       </div>
       <div class="flex justify-center">
         <button
@@ -54,7 +61,10 @@
           ⏳ &nbsp;Detecting...
         </button>
       </div>
-      <div v-if="result.length > 0" class="w-full text-center">
+      <div
+        v-if="result.length > 0"
+        class="w-full text-center"
+      >
         <p>{{ result }}</p>
       </div>
     </div>

@@ -6,7 +6,10 @@
   </div>
 
   <teleport to="body">
-    <LoginModal v-if="isLoginOpen" @close-login-modal="closeLoginModal()" />
+    <LoginModal
+      v-if="isLoginOpen"
+      @close-login-modal="closeLoginModal()"
+    />
   </teleport>
 </template>
 
@@ -26,11 +29,6 @@ export default {
       return this.$store.state.isLoginOpen;
     },
   },
-  methods: {
-    closeLoginModal() {
-      this.$store.commit("setIsLoginOpen", false);
-    },
-  },
   mounted() {
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
@@ -43,6 +41,11 @@ export default {
         this.$store.commit("setAuthUser", {});
       }
     });
+  },
+  methods: {
+    closeLoginModal() {
+      this.$store.commit("setIsLoginOpen", false);
+    },
   },
 };
 </script>

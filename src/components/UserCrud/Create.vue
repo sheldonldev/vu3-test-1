@@ -6,39 +6,47 @@
     Add User
   </button>
   <teleport to="body">
-    <Modal v-if="isModalOpen" @close-modal="isModalOpen = false">
-      <template #title>Add New User</template>
+    <Modal
+      v-if="isModalOpen"
+      @close-modal="isModalOpen = false"
+    >
+      <template #title>
+        Add New User
+      </template>
       <template #body>
-        <form @submit.prevent="submit" class="px-4 py-2">
+        <form
+          class="px-4 py-2"
+          @submit.prevent="submit"
+        >
           <div>
             <label for="user-name">Name</label>
             <input
+              v-model="state.form.name"
               name="user-name"
               class="w-full px-2 py-1 my-2 border rounded"
               type="text"
               placeholder="User Name"
-              v-model="state.form.name"
-            />
+            >
           </div>
           <div>
             <label for="email">Email</label>
             <input
+              v-model="state.form.email"
               name="email"
               class="w-full px-2 py-1 my-2 border rounded"
               type="email"
               placeholder="User Email"
-              v-model="state.form.email"
-            />
+            >
           </div>
           <div>
             <label for="avatar-url">Avatar</label>
             <input
+              v-model="state.form.avatarUrl"
               name="avatar-url"
               class="w-full px-2 py-1 my-2 border rounded"
               type="text"
               placeholder="Avatar Url"
-              v-model="state.form.avatarUrl"
-            />
+            >
           </div>
           <div>
             <input
@@ -46,7 +54,7 @@
               class="w-full px-2 py-1 my-2 bg-blue-300 border rounded shadow hover:bg-blue-500 hover:text-white"
               type="submit"
               value="Create"
-            />
+            >
           </div>
         </form>
       </template>
@@ -60,6 +68,7 @@ import Modal from "../Modal";
 import axios from "../../plugins/axios";
 export default {
   components: { Modal },
+  emits:['newUserAdded'],
   setup(_, { emit }) {
     const isModalOpen = ref(false);
     const state = reactive({

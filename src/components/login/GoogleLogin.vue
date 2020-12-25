@@ -6,7 +6,9 @@
     >
       Login with Google <i class="fab fa-google" />
     </button>
-    <p class="mt-4 text-center text-gray-400">--- Or ---</p>
+    <p class="mt-4 text-center text-gray-400">
+      --- Or ---
+    </p>
   </section>
 </template>
 
